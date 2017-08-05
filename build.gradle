@@ -1,0 +1,20 @@
+group 'io.chronetic'
+version '1.0-alpha'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'io.jenetics:jenetics:3.8.0'
+    compile 'org.influxdb:influxdb-java:2.7'
+    compile 'com.google.guava:guava:22.0'
+    compile group: 'org.apache.commons', name: 'commons-math3', version: '3.6.1'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
+    compile group: 'org.jetbrains', name: 'annotations', version: '15.0'
+}
