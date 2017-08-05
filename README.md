@@ -3,7 +3,7 @@
 
 ## Overview
 
-**Chronetic** is an open-source time pattern analysis library built to describe time-series data. Written in Java, using [Jenetics](http://jenetics.io/), an advanced genetic algorithm; Chronetic is able to locate the most prevalent patterns occuring in a given time-series dataset. Patterns are aggregated into a **Chronotype** and can be translated into a human-readable format with a **ChronoDescriptor**.
+[Chronetic](http://chronetic.io/) is an open-source time pattern analysis library built to describe time-series data. Written in Java, using [Jenetics](http://jenetics.io/), an advanced genetic algorithm; Chronetic is able to locate the most prevalent patterns occuring in a given time-series dataset. Patterns are aggregated into a **Chronotype** and can be translated into a human-readable format with a **ChronoDescriptor**.
 
 ## Example
 
@@ -50,7 +50,7 @@ repositories {
 }
 
 dependencies {
-      compile 'com.github.CodeBrig:Chronetic:v1.0-alpha'
+      compile 'com.github.codeBrig:chronetic:v1.0-alpha'
 }
 ```
 
@@ -65,8 +65,8 @@ dependencies {
 </repositories>
 
 <dependency>
-	<groupId>com.github.CodeBrig</groupId>
-	<artifactId>Chronetic</artifactId>
+	<groupId>com.github.codeBrig</groupId>
+	<artifactId>chronetic</artifactId>
 	<version>v1.0-alpha</version>
 </dependency>
 ```
