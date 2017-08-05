@@ -1,9 +1,9 @@
 # Chronetic v1.0 (Alpha)
-: Java Time Pattern Analysis Library
+: Experimental Java Time Pattern Analysis Library
 
 ## Overview
 
-**Chronetic** is an open-source time pattern analysis library built to describe time-series data. Written in Java, using [Jenetics](http://jenetics.io/), an advanced genetic algorithm, Chronetic is able to locate the most prevalent patterns occuring in a given time-series dataset. Patterns are aggregated into a **Chronotype** and can be translated into a human-readable format with a **ChronoDescriptor**.
+**Chronetic** is an open-source time pattern analysis library built to describe time-series data. Written in Java, using [Jenetics](http://jenetics.io/), an advanced genetic algorithm; Chronetic is able to locate the most prevalent patterns occuring in a given time-series dataset. Patterns are aggregated into a **Chronotype** and can be translated into a human-readable format with a **ChronoDescriptor**.
 
 ## Example
 
@@ -41,7 +41,35 @@ System.out.println(description);
 
 ## Installation
 
-todo: jitpack
+### Gradle
+
+```
+repositories {
+     jcenter()
+     maven { url "https://jitpack.io" }
+}
+
+dependencies {
+      compile 'com.github.CodeBrig:Chronetic:v1.0-alpha'
+}
+```
+
+### Maven
+
+```
+<repositories>
+	<repository>
+		<id>jitpack.io</id>
+		<url>https://jitpack.io</url>
+	</repository>
+</repositories>
+
+<dependency>
+	<groupId>com.github.CodeBrig</groupId>
+	<artifactId>Chronetic</artifactId>
+	<version>v1.0-alpha</version>
+</dependency>
+```
 
 ## API Reference
 
