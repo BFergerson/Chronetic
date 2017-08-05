@@ -50,7 +50,7 @@ repositories {
 }
 
 dependencies {
-      compile 'com.github.codeBrig:chronetic:v1.0-alpha'
+      compile 'com.github.codebrig:chronetic:v1.0-alpha'
 }
 ```
 
@@ -65,7 +65,7 @@ dependencies {
 </repositories>
 
 <dependency>
-	<groupId>com.github.codeBrig</groupId>
+	<groupId>com.github.codebrig</groupId>
 	<artifactId>chronetic</artifactId>
 	<version>v1.0-alpha</version>
 </dependency>
