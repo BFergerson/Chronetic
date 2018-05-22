@@ -4,7 +4,7 @@ import io.chronetic.data.ChronoSeries;
 import io.chronetic.evolution.pool.ChronoGene;
 import io.chronetic.evolution.pool.allele.ChronoFrequency;
 import io.chronetic.evolution.pool.allele.ChronoPattern;
-import org.jenetics.util.ISeq;
+import io.jenetics.util.ISeq;
 import org.junit.Test;
 
 import java.time.DayOfWeek;

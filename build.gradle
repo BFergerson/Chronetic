@@ -11,7 +11,7 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile 'io.jenetics:jenetics:3.8.0'
+    compile group: 'io.jenetics', name: 'jenetics', version: '4.1.0'
     compile 'org.influxdb:influxdb-java:2.7'
     compile 'com.google.guava:guava:22.0'
     compile group: 'org.apache.commons', name: 'commons-math3', version: '3.6.1'

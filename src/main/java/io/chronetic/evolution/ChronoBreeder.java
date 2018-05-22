@@ -9,11 +9,12 @@ import io.chronetic.evolution.pool.Chronosome;
 import io.chronetic.evolution.pool.Chronotype;
 import io.chronetic.evolution.pool.allele.ChronoFrequency;
 import io.chronetic.evolution.pool.allele.ChronoPattern;
-import org.jenetics.*;
-import org.jenetics.internal.util.IntRef;
-import org.jenetics.util.ISeq;
-import org.jenetics.util.MSeq;
-import org.jenetics.util.RandomRegistry;
+import io.jenetics.*;
+import io.jenetics.internal.util.IntRef;
+import io.jenetics.util.ISeq;
+import io.jenetics.util.MSeq;
+import io.jenetics.util.RandomRegistry;
+import io.jenetics.util.Seq;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.Duration;
@@ -53,7 +54,7 @@ public class ChronoBreeder extends AbstractAlterer<AnyGene<Chronotype>, ChronoFi
      * @return
      */
     @Override
-    public int alter(Population<AnyGene<Chronotype>, ChronoFitness> population, long generation) {
+    public AltererResult<AnyGene<Chronotype>, ChronoFitness> alter(Seq<Phenotype<AnyGene<Chronotype>, ChronoFitness>> population, long generation) {
         final IntRef alterations = new IntRef(0);
 
         //record and age all Chronotypes in population
@@ -137,7 +138,10 @@ public class ChronoBreeder extends AbstractAlterer<AnyGene<Chronotype>, ChronoFi
             ));
         }
 
-        return alterations.value;
+        return AltererResult.of(
+                result.map(MutatorResult::getResult).asISeq(),
+                alterations.value
+        );
     }
 
     @NotNull

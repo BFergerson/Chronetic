@@ -4,7 +4,7 @@ import io.chronetic.data.ChronoSeries;
 import io.chronetic.data.measure.ChronoScaleUnit;
 import io.chronetic.evolution.pool.allele.ChronoFrequency;
 import io.chronetic.evolution.pool.allele.ChronoPattern;
-import org.jenetics.util.*;
+import io.jenetics.util.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.Serializable;

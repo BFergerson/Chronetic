@@ -8,7 +8,7 @@ import io.chronetic.evolution.pool.Chronotype;
 import io.chronetic.evolution.pool.allele.ChronoAllele;
 import io.chronetic.evolution.pool.allele.ChronoFrequency;
 import io.chronetic.evolution.pool.allele.ChronoPattern;
-import org.jenetics.util.ISeq;
+import io.jenetics.util.ISeq;
 import org.junit.Test;
 
 import java.text.ParseException;
@@ -18,9 +18,7 @@ import java.time.Month;
 import java.time.temporal.ChronoUnit;
 import java.util.Collections;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class ChronoFitnessTest {
 

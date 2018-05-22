@@ -5,8 +5,8 @@ import io.chronetic.data.ChronoSeries;
 import io.chronetic.data.measure.ChronoRange;
 import io.chronetic.evolution.pool.allele.ChronoFrequency;
 import io.chronetic.evolution.pool.allele.ChronoPattern;
-import org.jenetics.Chromosome;
-import org.jenetics.util.ISeq;
+import io.jenetics.Chromosome;
+import io.jenetics.util.ISeq;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.temporal.ChronoUnit;

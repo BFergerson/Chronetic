@@ -5,7 +5,7 @@ import com.google.common.cache.CacheBuilder;
 import io.chronetic.data.ChronoSeries;
 import io.chronetic.evolution.pool.ChronoGene;
 import io.chronetic.evolution.pool.allele.ChronoPattern;
-import org.jenetics.util.ISeq;
+import io.jenetics.util.ISeq;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

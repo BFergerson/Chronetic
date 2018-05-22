@@ -1,7 +1,7 @@
 package io.chronetic.evolution.pool;
 
 import io.chronetic.evolution.pool.allele.ChronoAllele;
-import org.jenetics.Gene;
+import io.jenetics.Gene;
 import org.jetbrains.annotations.NotNull;
 
 import static java.util.Objects.requireNonNull;

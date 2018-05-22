@@ -6,20 +6,21 @@ import io.chronetic.data.evaluate.ChronoFitness;
 import io.chronetic.data.measure.ChronoScaleUnit;
 import io.chronetic.evolution.ChronoBreeder;
 import io.chronetic.evolution.pool.Chronotype;
-import org.jenetics.*;
-import org.jenetics.engine.Codec;
-import org.jenetics.engine.Engine;
-import org.jenetics.engine.EvolutionResult;
-import org.jenetics.engine.EvolutionStatistics;
-import org.jenetics.stat.MinMax;
+import io.jenetics.AnyChromosome;
+import io.jenetics.AnyGene;
+import io.jenetics.Genotype;
+import io.jenetics.Phenotype;
+import io.jenetics.engine.Codec;
+import io.jenetics.engine.Engine;
+import io.jenetics.engine.EvolutionResult;
+import io.jenetics.engine.EvolutionStatistics;
+import io.jenetics.stat.MinMax;
+import io.jenetics.util.ISeq;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import java.time.temporal.ChronoUnit;
-import java.util.Collections;
 
 import static java.util.Objects.requireNonNull;
 
@@ -122,28 +123,26 @@ public class ChroneticAnalyzer {
                 .survivorsSelector((population, count, opt) -> population.stream()
                         .sorted((o1, o2) -> o2.getFitness().score().compareTo(o1.getFitness().score()))
                         .limit(chronetic.getSurvivorsSize())
-                        .collect(Population.toPopulation()))
+                        .collect(ISeq.toISeq()))
 
                 //offspring with best fitness
                 .offspringSize(chronetic.getOffspringSize())
                 .offspringSelector((population, count, opt) -> population.stream()
                         .sorted((o1, o2) -> o2.getFitness().score().compareTo(o1.getFitness().score()))
                         .limit(chronetic.getOffspringSize())
-                        .collect(Population.toPopulation()))
+                        .collect(ISeq.toISeq()))
                 .build();
 
         final EvolutionStatistics<ChronoFitness, MinMax<ChronoFitness>> stats = EvolutionStatistics.ofComparable();
         final Phenotype<AnyGene<Chronotype>, ChronoFitness> best = engine.stream()
                 .peek(result -> {
-                    Population<AnyGene<Chronotype>, ChronoFitness> population = result.getPopulation();
+                    ISeq<Phenotype<AnyGene<Chronotype>, ChronoFitness>> population = result.getPopulation();
                     for (Phenotype<AnyGene<Chronotype>, ChronoFitness> phenotype : population) {
                         if (phenotype.getFitness() != null && phenotype.getFitness().isValidFitness()) {
                             logger.trace(phenotype.getGenotype().getGene().getAllele().toString());
                         }
                     }
                     logger.info("Generation: " + result.getGeneration() + "; Population: " + result.getPopulation().size());
-
-                    emptyPopulation();
                 })
                 .peek(stats)
                 .limit(chronetic.getMaxGeneration())
@@ -160,26 +159,6 @@ public class ChroneticAnalyzer {
     @NotNull
     public ChronoDescriptor describe() {
         return ChronoDescriptor.describe(topSolution());
-    }
-
-    /*
-   * https://github.com/jenetics/jenetics/issues/234
-   */
-    @SuppressWarnings("unchecked")
-    private static void emptyPopulation() {
-        try {
-            Field field = Population.class.getDeclaredField("EMPTY");
-            Object newValue = new Population(Collections.EMPTY_LIST);
-            field.setAccessible(true);
-
-            Field modifiersField = Field.class.getDeclaredField("modifiers");
-            modifiersField.setAccessible(true);
-            modifiersField.setInt(field, field.getModifiers() & ~Modifier.FINAL);
-
-            field.set(null, newValue);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 }

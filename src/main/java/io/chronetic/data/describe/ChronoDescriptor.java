@@ -9,7 +9,7 @@ import io.chronetic.evolution.pool.Chronosome;
 import io.chronetic.evolution.pool.Chronotype;
 import io.chronetic.evolution.pool.allele.ChronoFrequency;
 import io.chronetic.evolution.pool.allele.ChronoPattern;
-import org.jenetics.util.ISeq;
+import io.jenetics.util.ISeq;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 
@@ -464,7 +464,6 @@ public class ChronoDescriptor {
     private String describeChronoFrequency(@NotNull ChronoSeries chronoSeries, @NotNull ChronoFrequency chronoFrequency) {
         long minFreq = requireNonNull(chronoFrequency).getMinimumFrequency();
         long maxFreq = chronoFrequency.getMaximumFrequency();
-
         if (minFreq == maxFreq) {
             ChronoUnit reportUnit = chronoFrequency.getChronoUnit();
 
